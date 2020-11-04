@@ -4,11 +4,11 @@ variable "rules" {
 
   # Protocols (tcp, udp, icmp, all - are allowed keywords) or numbers (from https://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml):
   # All = -1, IPV4-ICMP = 1, TCP = 6, UDP = 17, IPV6-ICMP = 58
-  default = {   
+  default = {
     http-80-tcp   = [80, 80, "tcp", "HTTP"]
-    https-443-tcp  = [443, 443, "tcp", "HTTPS"]
-    ssh-tcp = [22, 22, "tcp", "SSH"]
-    
+    https-443-tcp = [443, 443, "tcp", "HTTPS"]
+    ssh-tcp       = [22, 22, "tcp", "SSH"]
+
     # This is a fallback rule to pass to lookup() as default. It does not open anything, because it should never be used.
     _ = ["", "", ""]
   }
