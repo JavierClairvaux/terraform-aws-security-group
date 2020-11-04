@@ -3,8 +3,8 @@
 ##################################
 locals {
   this_sg_id = concat(
-    aws_security_group.this.*.id,
-    aws_security_group.this_name_prefix.*.id,
+    aws_security_group.sg.*.id,
+    aws_security_group.sg_name_prefix.*.id,
     [""],
   )[0]
 }
@@ -12,7 +12,7 @@ locals {
 ##########################
 # Security group with name
 ##########################
-resource "aws_security_group" "this" {
+resource "aws_security_group" "sg" {
   count = var.create && false == var.use_name_prefix ? 1 : 0
 
   name                   = var.name
@@ -31,7 +31,7 @@ resource "aws_security_group" "this" {
 #################################
 # Security group with name_prefix
 #################################
-resource "aws_security_group" "this_name_prefix" {
+resource "aws_security_group" "sg_name_prefix" {
   count = var.create && var.use_name_prefix ? 1 : 0
 
   name_prefix            = "${var.name}-"

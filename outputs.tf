@@ -1,8 +1,8 @@
 output "this_security_group_id" {
   description = "The ID of the security group"
   value = concat(
-    aws_security_group.this.*.id,
-    aws_security_group.this_name_prefix.*.id,
+    aws_security_group.sg.*.id,
+    aws_security_group.sg_name_prefix.*.id,
     [""],
   )[0]
 }
@@ -10,8 +10,8 @@ output "this_security_group_id" {
 output "this_security_group_vpc_id" {
   description = "The VPC ID"
   value = concat(
-    aws_security_group.this.*.vpc_id,
-    aws_security_group.this_name_prefix.*.vpc_id,
+    aws_security_group.sg.*.vpc_id,
+    aws_security_group.sg_name_prefix.*.vpc_id,
     [""],
   )[0]
 }
@@ -19,8 +19,8 @@ output "this_security_group_vpc_id" {
 output "this_security_group_owner_id" {
   description = "The owner ID"
   value = concat(
-    aws_security_group.this.*.owner_id,
-    aws_security_group.this_name_prefix.*.owner_id,
+    aws_security_group.sg.*.owner_id,
+    aws_security_group.sg_name_prefix.*.owner_id,
     [""],
   )[0]
 }
@@ -28,8 +28,8 @@ output "this_security_group_owner_id" {
 output "this_security_group_name" {
   description = "The name of the security group"
   value = concat(
-    aws_security_group.this.*.name,
-    aws_security_group.this_name_prefix.*.name,
+    aws_security_group.sg.*.name,
+    aws_security_group.sg_name_prefix.*.name,
     [""],
   )[0]
 }
@@ -37,8 +37,8 @@ output "this_security_group_name" {
 output "this_security_group_description" {
   description = "The description of the security group"
   value = concat(
-    aws_security_group.this.*.description,
-    aws_security_group.this_name_prefix.*.description,
+    aws_security_group.sg.*.description,
+    aws_security_group.sg_name_prefix.*.description,
     [""],
   )[0]
 }
